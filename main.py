@@ -77,4 +77,15 @@ def words_to_digits(text):
 
     return result.strip()
 
-print(words_to_digits("триста двадцать пять тысяч сто девять птиц съели семнадцать тысяч двести шесть яблок"))
+def file_reader(filename):
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            text = file.read()
+            replaced_text = words_to_digits(text)
+            return replaced_text
+    except FileNotFoundError:
+        print("Файл не найден.")
+    except Exception as e:
+        print("Произошла ошибка:", e)
+
+print(file_reader("input.txt"))
