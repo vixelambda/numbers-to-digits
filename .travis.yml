@@ -9,5 +9,5 @@ addons:
       secure: b1274ec98eb2b4fe5e69a822f1d52bec0fd41ba5
 
 script:
-  - python main.py
+  - pytest
   - sonar-scanner
