@@ -13,4 +13,8 @@ def test3():
     # Тест на обработку файла
     assert file_reader("input.txt") == "325 109 птиц съели 17 206 яблок"
 
+def test4():
+    # Тест на обработку строки
+    assert words_to_digits("сто двадцать пять городов") == "125 городов"
+
 pytest.main()
