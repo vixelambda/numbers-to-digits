@@ -31,7 +31,18 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        coverage run -m pytest
+    - name: Coveralls
+      uses: coverallsapp/github-action@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+    - name: Save report
+      run: |
+        coverage html
+    - name: Check coverage
+      run: |
+        coverage report --fail-under=80
 
   sonarcloud:
     runs-on: ubuntu-latest
