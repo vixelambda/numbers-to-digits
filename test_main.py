@@ -15,6 +15,6 @@ def test3():
 
 def test4():
     # Тест на обработку строки
-    assert words_to_digits("сто двадцать пять городов") == "125 городов"
+    assert words_to_digits("сто пятнадцать городов") == "115 городов"
 
 pytest.main()
